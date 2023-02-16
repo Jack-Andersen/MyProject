@@ -1,0 +1,59 @@
+is_global = true
+build_property.TargetFramework = net6.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MauiAppBookStore
+build_property.ProjectDir = C:\Users\Elder\Documents\Project!\The Project\MauiAppBookStore\MauiAppBookStore\
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/BookList.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.BookList.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\BookList.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\BookList.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/Favoites.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.Favoites.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Favoites.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Favoites.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MainPage.xaml

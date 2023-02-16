@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MauiAppBookStore</name>
+    </assembly>
+    <members>
+        <member name="P:MauiAppBookStore.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:MauiAppBookStore.ViewModels.BaseViewModel._isBusy"/>
+        </member>
+        <member name="P:MauiAppBookStore.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:MauiAppBookStore.ViewModels.BaseViewModel._title"/>
+        </member>
+    </members>
+</doc>
