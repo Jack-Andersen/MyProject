@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookStoreV2.Data;
 using BookStoreV2.Models;
+using BookStoreV2.DTO;
+
 namespace BookStoreV2.Controllers;
 
 public static class ReadingHistoryEndpointsClass
@@ -9,47 +11,83 @@ public static class ReadingHistoryEndpointsClass
     {
         routes.MapGet("/api/ReadingHistory", async (BookStoreV2Context db) =>
         {
-            return await db.ReadingHistories.ToListAsync();
+            List<ReadingHistoryDTO> readinghistoryDTOs = new List<ReadingHistoryDTO>();
+            foreach (ReadingHistory readingHistory in db.ReadingHistories)
+            {
+                ReadingHistoryDTO readinghistoryDTO = new ReadingHistoryDTO();
+                readinghistoryDTO.BookId = readingHistory.BookId;
+                readinghistoryDTO.CustomerId = readingHistory.CustomerId;
+                readinghistoryDTO.Rating = readingHistory.Rating;
+                readinghistoryDTOs.Add(readinghistoryDTO);
+            }
+
+            return readinghistoryDTOs;
+
+            //return await db.ReadingHistories.ToListAsync();
         })
         .WithName("GetAllReadingHistorys");
 
-        routes.MapGet("/api/ReadingHistory/{id}", async (int ReadingHistoryId, BookStoreV2Context db) =>
+        routes.MapGet("/api/ReadingHistory/{id}", async (int BookId, BookStoreV2Context db) =>
         {
-            return await db.ReadingHistories.FindAsync(ReadingHistoryId)
+            return await db.ReadingHistories.FindAsync(BookId)
                 is ReadingHistory model
                     ? Results.Ok(model)
                     : Results.NotFound();
         })
         .WithName("GetReadingHistoryById");
 
-        routes.MapPut("/api/ReadingHistory/{id}", async (int ReadingHistoryId, ReadingHistory readingHistory, BookStoreV2Context db) =>
+        routes.MapPut("/api/ReadingHistory", async (int BookId, int CustomerId, bool Favorite, BookStoreV2Context db) =>
         {
-            var foundModel = await db.ReadingHistories.FindAsync(ReadingHistoryId);
+            var foundModel = await db.Books.FindAsync(BookId);
 
             if (foundModel is null)
             {
                 return Results.NotFound();
             }
-            
+
+            // Find corresponding record in ReadingHistories table
+            var readingHistory = await db.ReadingHistories.FindAsync(BookId, CustomerId);
+            if (readingHistory is null)
+            {
+                return Results.NotFound();
+            }
+            // Update existing record
+            readingHistory.Favorite = Favorite;
             db.Update(readingHistory);
 
             await db.SaveChangesAsync();
 
             return Results.NoContent();
-        })
-        .WithName("UpdateReadingHistory");
+        });
+
+        //routes.MapPut("/api/ReadingHistory/{id}", async (int BookId, ReadingHistory readingHistory, BookStoreV2Context db) =>
+        //{
+        //    var foundModel = await db.ReadingHistories.FindAsync(BookId);
+
+        //    if (foundModel is null)
+        //    {
+        //        return Results.NotFound();
+        //    }
+
+        //    db.Update(readingHistory);
+
+        //    await db.SaveChangesAsync();
+
+        //    return Results.NoContent();
+        //})
+        //.WithName("UpdateReadingHistory");
 
         routes.MapPost("/api/ReadingHistory/", async (ReadingHistory readingHistory, BookStoreV2Context db) =>
         {
             db.ReadingHistories.Add(readingHistory);
             await db.SaveChangesAsync();
-            return Results.Created($"/ReadingHistorys/{readingHistory.ReadingHistoryId}", readingHistory);
+            return Results.Created($"/ReadingHistorys/{readingHistory.BookId}", readingHistory);
         })
         .WithName("CreateReadingHistory");
 
-        routes.MapDelete("/api/ReadingHistory/{id}", async (int ReadingHistoryId, BookStoreV2Context db) =>
+        routes.MapDelete("/api/ReadingHistory/{id}", async (int BookId, BookStoreV2Context db) =>
         {
-            if (await db.ReadingHistories.FindAsync(ReadingHistoryId) is ReadingHistory readingHistory)
+            if (await db.ReadingHistories.FindAsync(BookId) is ReadingHistory readingHistory)
             {
                 db.ReadingHistories.Remove(readingHistory);
                 await db.SaveChangesAsync();

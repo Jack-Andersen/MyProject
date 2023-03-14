@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookStoreV2.Data;
 using BookStoreV2.Models;
+using BookStoreV2.DTO;
+
 namespace BookStoreV2.Controllers;
 
 public static class GenreEndpointsClass
@@ -9,7 +11,18 @@ public static class GenreEndpointsClass
     {
         routes.MapGet("/api/Genre", async (BookStoreV2Context db) =>
         {
-            return await db.Genres.ToListAsync();
+            List<GenreDTO> genreDTOs = new List<GenreDTO>();
+            foreach (Genre genre in db.Genres)
+            {
+                GenreDTO genreDTO = new GenreDTO();
+                genreDTO.GenreId = genre.GenreId;
+                genreDTO.Name = genre.Name;
+                genreDTOs.Add(genreDTO);
+            }
+
+            return genreDTOs;
+
+            //return await db.Genres.ToListAsync();
         })
         .WithName("GetAllGenres");
 

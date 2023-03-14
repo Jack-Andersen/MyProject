@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookStoreV2.Data;
 using BookStoreV2.Models;
+using BookStoreV2.DTO;
+using Mapster;
+
 namespace BookStoreV2.Controllers;
 
 public static class CustomerEndpointsClass
@@ -9,7 +12,16 @@ public static class CustomerEndpointsClass
     {
         routes.MapGet("/api/Customer", async (BookStoreV2Context db) =>
         {
-            return await db.Customers.ToListAsync();
+            List<CustomerDTO> customerDTOs = new List<CustomerDTO>();
+            foreach (Customer customer in db.Customers)
+            {
+                CustomerDTO customerDTO = CustomerDTO.FromCustomer(customer);
+                customerDTOs.Add(customerDTO);
+            }
+
+            return customerDTOs;
+
+            //return await db.Customers.ToListAsync();
         })
         .WithName("GetAllCustomers");
 
@@ -38,6 +50,47 @@ public static class CustomerEndpointsClass
             return Results.NoContent();
         })
         .WithName("UpdateCustomer");
+
+        routes.MapPost("/api/Login/", async (LoginDTO login, BookStoreV2Context db) =>
+        {
+            foreach (Customer customer in db.Customers)
+            {
+                if(login.UserName == customer.UserName && login.Password == customer.Password)
+                {
+                    CustomerDTO customerDTO = CustomerDTO.FromCustomer(customer);
+                    return Results.Ok(customerDTO);
+                }
+            }
+            return Results.BadRequest("Login failed");
+        })
+        .WithName("CustomerLogin");
+
+        routes.MapPost("/api/Books/", async (CustomerDTO login, BookStoreV2Context db) =>
+        {
+            foreach (Customer customer in db.Customers)
+            {
+                if (login.UserName == customer.UserName && login.Password == customer.Password)
+                {
+                    CustomerDTO customerDTO = CustomerDTO.FromCustomer(customer);
+                    var readingHistories = from rh in db.ReadingHistories
+                                           join b in db.Books on rh.BookId equals b.BookId
+                                           where rh.CustomerId == customerDTO.CustomerId
+                                           select new ReadingHistoryDTO
+                                           {
+                                               BookId = rh.BookId,
+                                               CustomerId = rh.CustomerId,
+                                               Title = b.Title,
+                                               Rating = rh.Rating,
+                                               Favorite = rh.Favorite
+                                           };
+                    List<ReadingHistoryDTO> readingHistoryDTOs = new List<ReadingHistoryDTO>();
+                    readingHistoryDTOs = readingHistories.Adapt<ReadingHistoryDTO[]>().ToList();
+                    return Results.Ok(readingHistoryDTOs);
+                }
+            }
+            return Results.BadRequest("Login failed");
+        })
+        .WithName("CustomerBookLogin");
 
         routes.MapPost("/api/Customer/", async (Customer customer, BookStoreV2Context db) =>
         {

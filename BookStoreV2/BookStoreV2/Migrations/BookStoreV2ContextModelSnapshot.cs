@@ -17,7 +17,7 @@ namespace BookStoreV2.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.13")
+                .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -117,24 +117,19 @@ namespace BookStoreV2.Migrations
 
             modelBuilder.Entity("BookStoreV2.Models.ReadingHistory", b =>
                 {
-                    b.Property<int>("ReadingHistoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReadingHistoryId"), 1L, 1);
-
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Favorite")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.HasKey("ReadingHistoryId");
-
-                    b.HasIndex("BookId");
+                    b.HasKey("BookId", "CustomerId");
 
                     b.HasIndex("CustomerId");
 

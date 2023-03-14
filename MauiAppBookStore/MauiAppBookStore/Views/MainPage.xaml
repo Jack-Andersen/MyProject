@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppBookStore.MainPage">
-
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
@@ -30,24 +29,35 @@
 
             <SearchBar Placeholder="Search items..." />
 
+            <Button Text="View Books"
+                Margin="20,30,20,0"
+                Clicked="OnBookListButtonClicked"/>
+
+            <Button Text="View Favorites"
+                Margin="20,0,20,0"
+                Clicked="OnFavoritesButtonClicked"/>
+
+            <Button Text="View GeoLocation"
+                Margin="20,0,20,0"
+                Clicked="OnGeoLocation"/>
+
         </VerticalStackLayout>
     </ScrollView>
-
+    
     <!--<TabBar>
         <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate views:MainPage}"
+        ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
         <ShellContent
         Title="BookList"
-        ContentTemplate="{DataTemplate views:BookList}"
+        ContentTemplate="{DataTemplate local:BookList}"
         Route="MainPage" />
 
         <ShellContent
         Title="Favoites"
-        ContentTemplate="{DataTemplate views:Favoites}"
+        ContentTemplate="{DataTemplate local:Favoites}"
         Route="MainPage" />
     </TabBar>-->
-
 </ContentPage>

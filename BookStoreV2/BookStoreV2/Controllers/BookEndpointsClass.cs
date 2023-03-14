@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookStoreV2.Data;
 using BookStoreV2.Models;
+using ScafBookStoreV2fold.DTO;
+using BookStoreV2.DTO;
+using Mapster;
+
 namespace BookStoreV2.Controllers;
 
 public static class BookEndpointsClass
@@ -9,7 +13,19 @@ public static class BookEndpointsClass
     {
         routes.MapGet("/api/Book", async (BookStoreV2Context db) =>
         {
-            return await db.Books.ToListAsync();
+            List<BookDTO> bookDTOs = new List<BookDTO>();
+            foreach (Book book in db.Books)
+            {
+                BookDTO bookDTO = new BookDTO();
+                bookDTO.BookId = book.BookId;
+                bookDTO.Title = book.Title;
+                bookDTO.CreatedDate = book.CreatedDate;
+                bookDTOs.Add(bookDTO);
+            }
+
+            return bookDTOs;
+
+            //return await db.Books.ToListAsync();
         })
         .WithName("GetAllBooks");
 
@@ -31,7 +47,7 @@ public static class BookEndpointsClass
             {
                 return Results.NotFound();
             }
-            
+
             db.Update(book);
 
             await db.SaveChangesAsync();
@@ -48,7 +64,7 @@ public static class BookEndpointsClass
         })
         .WithName("CreateBook");
 
-        routes.MapDelete("/api/Book/{id}", async (int BookId, BookStoreV2Context db) =>
+        routes.MapDelete("/api/Book/", async (int BookId, BookStoreV2Context db) =>
         {
             if (await db.Books.FindAsync(BookId) is Book book)
             {

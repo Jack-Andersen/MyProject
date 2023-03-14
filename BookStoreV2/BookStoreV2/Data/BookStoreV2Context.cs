@@ -56,6 +56,12 @@ namespace BookStoreV2.Data
                     cl.BookId,
                     cl.AuthorId
                 });
+            modelBuilder.Entity<ReadingHistory>()
+                .HasKey(cl => new
+                {
+                    cl.BookId,
+                    cl.CustomerId
+                });
 
             base.OnModelCreating(modelBuilder);
         }

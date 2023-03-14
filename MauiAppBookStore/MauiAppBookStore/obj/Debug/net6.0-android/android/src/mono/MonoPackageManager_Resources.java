@@ -34,6 +34,7 @@ public class MonoPackageManager_Resources {
 		"Microsoft.SqlServer.Server.dll",
 		"Microsoft.Win32.SystemEvents.dll",
 		"Newtonsoft.Json.dll",
+		"RestSharp.dll",
 		"System.Configuration.ConfigurationManager.dll",
 		"System.Drawing.Common.dll",
 		"System.IdentityModel.Tokens.Jwt.dll",

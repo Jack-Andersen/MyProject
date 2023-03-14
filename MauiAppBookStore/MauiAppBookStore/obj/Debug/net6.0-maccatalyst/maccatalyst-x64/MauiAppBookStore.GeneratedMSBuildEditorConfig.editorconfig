@@ -34,17 +34,35 @@ build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Resources
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/AddBook.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.AddBook.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddBook.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddBook.xaml
+
 [C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/BookList.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.BookList.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\BookList.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\BookList.xaml
 
-[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/Favoites.xaml]
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/DeleteBook.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.Favoites.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\Favoites.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\Favoites.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.DeleteBook.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\DeleteBook.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\DeleteBook.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/Favorites.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.Favorites.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Favorites.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Favorites.xaml
+
+[C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/GeoLocation.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppBookStore.Views.GeoLocation.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\GeoLocation.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\GeoLocation.xaml
 
 [C:/Users/Elder/Documents/Project\!/The Project/MauiAppBookStore/MauiAppBookStore/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

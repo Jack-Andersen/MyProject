@@ -3,10 +3,54 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppBookStore.BookList"
              Title="BookList">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView VerticalScrollBarVisibility="Default">
+        <StackLayout>
+            <Frame BorderColor="Gray" Margin="10" Padding="0,0,0,0" BackgroundColor="LightGray" HeightRequest="60" WidthRequest="230">
+                <Grid HorizontalOptions="CenterAndExpand" Margin="10" BackgroundColor="LightGray">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Bookname" Grid.Column="0" Grid.Row="0" Margin="10" HorizontalOptions="Center" />
+                    <Label Text="Rating" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalOptions="Center" />
+                    <Label Text="Favorites" Grid.Column="2" Grid.Row="0" Margin="10" HorizontalOptions="Center" />
+                </Grid>
+            </Frame>
+            <CollectionView ItemsSource="{Binding Books}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Margin="5" Padding="5" BackgroundColor="LightGray" HeightRequest="80" WidthRequest="230">
+                            <Grid HorizontalOptions="CenterAndExpand" Margin="10" Padding="0,0,15,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}"  Grid.Column="1" Grid.Row="1" VerticalOptions="Center" WidthRequest="50"/>
+                                <Label Text="{Binding Title}"  Grid.Column="0" Grid.Row="1" Margin="10" Padding="0,0,10,0" VerticalOptions="Center" WidthRequest="95" />
+                                <Label Text="{Binding Rating}"  Grid.Column="1" Grid.Row="1" VerticalOptions="Center" WidthRequest="50"/>
+                                <Switch IsToggled="{Binding Favorite}" Toggled="OnToggleFavorite" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Add Book" Clicked="OnAddBookClicked"
+                    Margin="10,0,10,0" 
+                    VerticalOptions="EndAndExpand"/>
+            <Button Text="Delete Book" Clicked="OnDeleteBookClicked"
+                    Margin="10" 
+                    VerticalOptions="End"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

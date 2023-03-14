@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppBookStore.Views.AddBook"
+             Title="AddBook">
+    <Grid RowSpacing="5" Grid.Row="1" Margin="20,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout>
+            <Frame BackgroundColor="Transparent" BorderColor="#621Afd" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <Entry x:Name="TitleEntry" Placeholder="Title" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+            </Frame>
+            <HorizontalStackLayout>
+                <Frame BackgroundColor="Transparent" BorderColor="#621Afd" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30" WidthRequest="200">
+                    <Entry x:Name="RatingEntry" Placeholder="Rating 1-5" />
+                </Frame>
+                <Switch x:Name="FavoriteSwitch" IsToggled="False" Margin="0,15,0,0" HeightRequest="40" WidthRequest="80"/>
+                <Label Text="Favorite?" VerticalOptions="Center" Margin="5,0,0,0"/>
+            </HorizontalStackLayout>
+            <Frame BackgroundColor="Transparent" BorderColor="#621Afd" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <Entry x:Name="GenreEntry" Placeholder="GenreId" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#621Afd" Padding="0" Margin="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                <Entry x:Name="AuthorEntry" Placeholder="AuthorId" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+            </Frame>
+        <Image Source="bookimage.jpg" Aspect="AspectFill" HeightRequest="420" WidthRequest="350" Margin="0,40,0,0"/>
+        </VerticalStackLayout>
+        <Button Text="Add Book" Clicked="OnAddBookClicked2"
+                    Margin="10" 
+                    VerticalOptions="EndAndExpand"/>
+    </Grid>
+</ContentPage>

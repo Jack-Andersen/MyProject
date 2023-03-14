@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppBookStore.Views.GeoLocation"
+             Title="GeoLocation">
+    <StackLayout>
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Tap the button to get your location:" Grid.Row="0" Margin="0,0,0,10" FontAttributes="Bold" WidthRequest="200" FontSize="Large"/>
+            <Button Text="Get Location" Clicked="OnGeoLocation" Grid.Row="1" WidthRequest="200"/>
+            <Frame Grid.Row="2"  BorderColor="#621Afd" Padding="0" Margin="0,5,0,0" VerticalOptions="EndAndExpand" CornerRadius="30">
+                <Label x:Name="LatitudeLabel" Text="Latitude: " HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+            <Frame Grid.Row="3"  BorderColor="#621Afd" Padding="0" Margin="0,5,0,0" VerticalOptions="EndAndExpand" CornerRadius="30">
+                <Label x:Name="LongitudeLabel" Text="Longitude: " HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

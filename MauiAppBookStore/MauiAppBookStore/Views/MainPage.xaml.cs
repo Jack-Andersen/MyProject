@@ -1,24 +1,31 @@
 ﻿namespace MauiAppBookStore;
 
+using MauiAppBookStore.Models;
+using MauiAppBookStore.Views;
+using Microsoft.Maui.Controls;
+
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+    }
 
-	//private void OnCounterClicked(object sender, EventArgs e)
-	//{
-	//	count++;
+    private async void OnBookListButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new BookList());
+    }
 
-	//	if (count == 1)
-	//		CounterBtn.Text = $"Clicked {count} time";
-	//	else
-	//		CounterBtn.Text = $"Clicked {count} times";
+    private async void OnFavoritesButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Favoites());
+    }
 
-	//	SemanticScreenReader.Announce(CounterBtn.Text);
-	//}
+    private async void OnGeoLocation(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new GeoLocation());
+    }
 }
+
 

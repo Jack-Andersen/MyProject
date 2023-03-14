@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using BookStoreV2.Data;
 using BookStoreV2.Models;
+using BookStoreV2.DTO;
+
 namespace BookStoreV2.Controllers;
 
 public static class AuthorEndpointsClass
@@ -9,7 +11,16 @@ public static class AuthorEndpointsClass
     {
         routes.MapGet("/api/Author", async (BookStoreV2Context db) =>
         {
-            return await db.Authors.ToListAsync();
+            List<AuthorDTO> authorDTOs = new List<AuthorDTO>();
+            foreach (Author author in db.Authors)
+            {
+                AuthorDTO authorDTO = new AuthorDTO();
+                authorDTO.AuthorId = author.AuthorId;
+                authorDTO.Name = author.Name;
+                authorDTOs.Add(authorDTO);
+            }
+
+            return authorDTOs; //await db.Authors.ToListAsync();
         })
         .WithName("GetAllAuthors");
 

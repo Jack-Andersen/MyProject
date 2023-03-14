@@ -7,6 +7,10 @@
         "version": "6.0.13"
       },
       {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "6.0.13"
+      },
+      {
         "name": "Microsoft.Maui.Core",
         "version": "6.0.548"
       },
