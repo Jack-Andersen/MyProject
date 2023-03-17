@@ -50726,11 +50726,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Elder\\Documents\\Project!\\The Project\\MauiAppBookStore\\MauiAppBookStore\\MauiAppBookStore.csproj",
+      "projectUniqueName": "C:\\Users\\Elder\\Documents\\GitHub\\MyProject\\MauiAppBookStore\\MauiAppBookStore\\MauiAppBookStore.csproj",
       "projectName": "MauiAppBookStore",
-      "projectPath": "C:\\Users\\Elder\\Documents\\Project!\\The Project\\MauiAppBookStore\\MauiAppBookStore\\MauiAppBookStore.csproj",
+      "projectPath": "C:\\Users\\Elder\\Documents\\GitHub\\MyProject\\MauiAppBookStore\\MauiAppBookStore\\MauiAppBookStore.csproj",
       "packagesPath": "C:\\Users\\Elder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Elder\\Documents\\Project!\\The Project\\MauiAppBookStore\\MauiAppBookStore\\obj\\",
+      "outputPath": "C:\\Users\\Elder\\Documents\\GitHub\\MyProject\\MauiAppBookStore\\MauiAppBookStore\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

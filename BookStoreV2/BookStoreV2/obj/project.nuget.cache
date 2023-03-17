@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g+V0i6cbyWZZ5K4VP2loTLKRU7zy3VKoj0dhzDjC/AGJQBiS3J0ibeI65fl3jFD5TzXRww64NfN7TP+kKaO+3w==",
+  "dgSpecHash": "YTKKeApz5zQ7dUssaW2UbHLF2hVAabBwIu1r1mT42jb6VKs5NPZaeWzLqJ732pzn6Rf5LaQtnAoPEyybds1C6A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Elder\\Desktop\\BookStoreTest\\BookStoreV2\\BookStoreV2.csproj",
+  "projectFilePath": "C:\\Users\\Elder\\Documents\\GitHub\\MyProject\\BookStoreV2\\BookStoreV2\\BookStoreV2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elder\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Elder\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
